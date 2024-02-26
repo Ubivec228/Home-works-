@@ -1,1 +1,1 @@
-console.log("Hello world")
+console.log("The world will die via drim team qovlug ")
