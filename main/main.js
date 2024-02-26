@@ -1,1 +1,0 @@
-console.log("The world will die via drim team qovlug ")
