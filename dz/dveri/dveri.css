@@ -1,0 +1,102 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    height: 100vh;
+  width: 100%;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.main { 
+    height: 300px;
+    width: 300px;
+    border: 2px solid red;
+    position: relative;
+}
+
+.hello { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 32px;
+    background-color: blueviolet;
+}
+
+.door { 
+    background-color: red;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+#left-door { 
+    top: 0;
+    left: 0;
+    border-right: 1px solid black;
+    /* transform-origin: left; */
+    
+    animation-name: left;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+
+}
+
+#right-door { 
+
+    top: 0;
+    right: 0;
+    border-left: 1px solid black;
+    /* transform-origin: right;
+    transition: 5s; */
+    animation-name: right;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+}
+
+.main:hover #left-door { 
+    transform: rotateY(-140deg);
+}
+
+.main:hover #right-door{
+    transform: rotateY(140deg);
+  }
+
+@keyframes left {
+    from { 
+        transform-origin: left;
+        transform: rotate(0deg);
+
+    }
+    to { 
+        transform-origin: left;
+        transform: rotateY(-140deg);
+    }
+}
+
+@keyframes right {
+    from { 
+        transform-origin: right;
+        transform: rotate(0deg);
+
+    }
+    to { 
+        transform-origin: right;
+        transform: rotateY(140deg);
+    }
+}
+
+
+
