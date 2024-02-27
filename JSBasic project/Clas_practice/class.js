@@ -22,3 +22,9 @@ for (let prop in rect) {
     if (rect.hasOwnProperty(prop))
         console.log(prop + ":" + rect[prop])
 }
+
+// console.log(rect.getPrototypeOf(geom))
+
+console.log(Object.getPrototypeOf(rect) === geom);
+
+console.log(Object.getPrototypeOf(rect));
