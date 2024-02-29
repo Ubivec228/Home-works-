@@ -28,3 +28,4 @@ for (let prop in rect) {
 console.log(Object.getPrototypeOf(rect) === geom);
 
 console.log(Object.getPrototypeOf(rect));
+
