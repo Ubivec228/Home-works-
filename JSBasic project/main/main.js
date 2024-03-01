@@ -1,46 +1,43 @@
 
 
-class Task { 
-    #id;
-    #description;
-    #cost;
-    constructor(id,description,cost) { 
-        this.#id = String(id);
-        this.#description = String(description);
-        this.#cost = Number(cost);
-    }
-    //kak sdelat zapret na obyavleniye ekzemplarov klassa
-    getId(){return String(this.#id)}
-    getDescription(){return String(this.#description)}
-    getCost(){return Number(this.#cost)}экземпляр
+function Task(description,number) { 
+    this.id = "id" + Math.random().toString(16).slice(2);
+    this.description = description;
+    this.cost = number
+    if(new.target) {
+        alert("Nelza sozdavat mena bez new")   }
 }
+Task.prototype.getId = function() { return this.id}
+Task.prototype.getDescription = function() {return this.description};
+Task.prototype.getCost = function() {return this.cost}
+
 
 class IncomeTask extends Task{ 
     #budget;
     // kak dobavit Privatnoye pole v super income task
     // otkuda brat budget i income
     constructor(budget) {
-        super(id,description,cost);
-        this.#budget = Number(budget);
-        this.income = income;
+        super(cost);
+        this.#budget = budget;
     }
-    makeDone(){
-        console.log("makeDone method")
+    makeDone(budget){
+        return budget.income += this.cost
     }
-    makeUndone(){
-        console.log("makeUndone method")
+    makeUndone(budget){
+        return budget.income -= this.cost
     }
 }
 
 class ExpenseTask extends Task { 
-    constructor() { 
-
+    constructor(budget) { 
+        super(this.cost);
+        this.budget = budget;
     }
-    makeDone(){
-        console.log("makeDone method")
+    makeDone(budget){
+        console.log(budget.expenses +=this.cost)
     }
-    makeUndone(){
-        console.log("makeUndone method")
+    makeUndone(budget){
+        console.log(budget.expenses -= this.cost)
     }
 }
 
@@ -50,7 +47,7 @@ class TasksController {
 
     }  
     addTasks() {
-        console.log("Dobavlayet v tasks tolko unikalniye po id zadachi ")
+        this.tasks.push(new task1)
     }
     deleteTask() { 
         console.log("Udalayet zadachu ")
@@ -79,12 +76,12 @@ class BudgetController {
     #tasksController;
     balance = 0;
     #budget
-    constructor(balance) {
+    constructor() {
         this.#tasksController = tasksController;
         this.#budget = {
-            balance: {value: Number(222)},
-            income: {value: Number(111)},
-            expenses: {value: Number(333)}
+            balance: number,
+            income: number,
+            expenses: number
         }
     }
     getBalance(){return Number(this.balance)};
